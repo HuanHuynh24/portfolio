@@ -12,7 +12,7 @@ const themeScript = `
     const savedTheme = localStorage.getItem('portfolio-theme');
     const theme = savedTheme === 'dark' || savedTheme === 'light'
       ? savedTheme
-      : matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      : 'dark';
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
   } catch {}

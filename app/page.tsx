@@ -30,6 +30,8 @@ const navigation = [
 type Language = 'en' | 'vi';
 type Theme = 'dark' | 'light';
 
+const DEFAULT_THEME: Theme = 'dark';
+
 const copy = {
   en: {
     primaryNav: 'Primary navigation', toggleMenu: 'Toggle menu', switchLanguage: 'Switch to Vietnamese',
@@ -227,7 +229,7 @@ function Typewriter({ phrase }: { phrase: string }) {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [language, setLanguage] = useState<Language>('en');
-  const [theme, setTheme] = useState<Theme>('dark');
+  const [theme, setTheme] = useState<Theme>(DEFAULT_THEME);
   const [preferencesReady, setPreferencesReady] = useState(false);
   const t = copy[language];
   const closeMenu = () => setMenuOpen(false);
@@ -240,7 +242,7 @@ function App() {
       : 'en');
     setTheme(savedTheme === 'dark' || savedTheme === 'light'
       ? savedTheme
-      : window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      : DEFAULT_THEME);
     setPreferencesReady(true);
   }, []);
 
@@ -298,7 +300,29 @@ function App() {
   return (
     <div className={`site-shell theme-${theme} relative min-h-screen overflow-x-hidden font-manrope selection:bg-[#AFDDFF] selection:text-black`}>
       <div className="floating-entity fixed inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <video className="entity-video h-full w-full" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260813_115057_94c3699b-0fd1-4124-bcf3-3626bb8c1f77.mp4" autoPlay muted loop playsInline />
+        <video
+          className="entity-video h-full w-full"
+          ref={(video) => {
+            if (!video) return;
+            video.defaultMuted = true;
+            video.muted = true;
+          }}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          disablePictureInPicture
+          controlsList="nodownload nofullscreen noremoteplayback"
+          onCanPlay={(event) => {
+            const video = event.currentTarget;
+            video.defaultMuted = true;
+            video.muted = true;
+            video.play().catch(() => undefined);
+          }}
+        >
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260813_115057_94c3699b-0fd1-4124-bcf3-3626bb8c1f77.mp4" type="video/mp4" />
+        </video>
       </div>
       <GridBackground />
 
