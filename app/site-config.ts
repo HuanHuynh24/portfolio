@@ -1,4 +1,4 @@
-const fallbackSiteUrl = 'https://huanhuynh24.github.io/portfolio';
+const fallbackSiteUrl = 'https://huandev.io.vn';
 
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || fallbackSiteUrl).replace(/\/$/, '');
 
