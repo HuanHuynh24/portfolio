@@ -7,7 +7,10 @@ export const metadata: Metadata = {
   title: siteName,
   description: siteDescription,
   alternates: { canonical: `${siteUrl}/` },
-  icons: { icon: '/favicon.svg' },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+  },
   verification: {
     google: 'daB50WhEWK6k-YlsZ2xFqhOxicIAIFwDsoDL6MZb0YU',
   },
@@ -33,7 +36,11 @@ const structuredData = {
         name: 'University of Technology and Education - The University of Danang',
       },
       knowsAbout: ['WordPress', 'Next.js', 'React', 'TypeScript', 'PHP', 'Docker', 'VPS', 'Technical SEO'],
-      sameAs: ['https://github.com/HuanHuynh24'],
+      sameAs: [
+        'https://github.com/HuanHuynh24',
+        'https://www.tiktok.com/@ngochuan_02',
+        'https://www.facebook.com/share/19K8rMBkHA/?mibextid=wwXIfr',
+      ],
     },
     {
       '@type': 'WebSite',

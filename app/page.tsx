@@ -32,6 +32,11 @@ type Theme = 'dark' | 'light';
 
 const DEFAULT_THEME: Theme = 'dark';
 
+const socialLinks = [
+  { label: 'TikTok', href: 'https://www.tiktok.com/@ngochuan_02' },
+  { label: 'Facebook', href: 'https://www.facebook.com/share/19K8rMBkHA/?mibextid=wwXIfr' },
+];
+
 const copy = {
   en: {
     primaryNav: 'Primary navigation', toggleMenu: 'Toggle menu', switchLanguage: 'Switch to Vietnamese',
@@ -530,10 +535,24 @@ function App() {
               </a>
             </div>
 
-            <div className="grid gap-[24px] border-t border-white/10 pt-[28px] sm:grid-cols-2 md:grid-cols-3">
+            <div className="grid gap-[24px] border-t border-white/10 pt-[28px] sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr_auto]">
               <a href="mailto:huanhuynh2402@gmail.com" className="group flex items-center gap-[12px] text-[13px] text-white/65 hover:text-[#AFDDFF]"><Mail className="h-[16px] w-[16px]" strokeWidth={1.5} /> huanhuynh2402@gmail.com</a>
               <span className="flex items-center gap-[12px] text-[13px] text-white/65"><MapPin className="h-[16px] w-[16px]" strokeWidth={1.5} /> {t.location}</span>
-              <span className="text-[11px] tracking-[0.12em] text-white/30 md:text-right">© 2026 HUỲNH NGỌC HUÂN</span>
+              <div className="flex items-center gap-[18px]">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="me noopener noreferrer"
+                    className="group flex items-center gap-[5px] text-[12px] text-white/65 transition-colors hover:text-[#AFDDFF]"
+                  >
+                    {social.label}
+                    <ArrowUpRight className="h-[13px] w-[13px] transition-transform group-hover:-translate-y-[2px] group-hover:translate-x-[2px]" strokeWidth={1.5} />
+                  </a>
+                ))}
+              </div>
+              <span className="text-[11px] tracking-[0.12em] text-white/30 lg:text-right">© 2026 HUỲNH NGỌC HUÂN</span>
             </div>
           </div>
         </section>
