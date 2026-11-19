@@ -169,7 +169,7 @@ export default function Home() {
             ))}
           </div>
           <p className="hero-note">
-            WordPress Developer & Tech Lead.
+            Web Developer & Tech Lead.
             <br />
             3+ years building websites, optimizing performance and SEO, and
             deploying reliable web systems. 10+ client websites delivered.
@@ -193,7 +193,7 @@ export default function Home() {
               I’m Huân!
             </h2>
             <p>
-              I am a WordPress Developer and Tech Lead based in Da Nang, Viet
+              I am a Web Developer in Da Nang, Viet
               Nam, with 3+ years of experience. At Webtop, I build WordPress,
               WooCommerce and Next.js websites, optimize performance and SEO,
               and deploy reliable systems on VPS infrastructure.
